@@ -16,6 +16,7 @@ RUN apk add --update ca-certificates \
  && apk del --purge deps \
  && rm /var/cache/apk/* \
  && rm -f /helm-${HELM_LATEST_VERSION}-linux-amd64.tar.gz
+RUN apk add --update -t deps wget git openssl bash curl jq
 
 ENTRYPOINT ["helm"]
 CMD ["help"]
